@@ -43,7 +43,7 @@ export default function Profile() {
             <>
               <div className={styles.profileContent}>
                 {/* User Avatar Section */}
-                <div>
+                <div className={styles.avatarSection}>
                   <UserAvatar
                     alt="User profile image"
                     user={user}
