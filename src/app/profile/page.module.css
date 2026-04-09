@@ -1,8 +1,9 @@
 .profilePage {
-  display: block;
-  justify-content: center;
-  align-items: center;
+  display: flex;
   padding: 20px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1rem;
 }
 
 .profileCard {
@@ -10,15 +11,51 @@
   background-color: #f8f9fa;
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   margin-left: 16rem;
 }
 
-.profileContent {
+.name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.roleBadge {
+  background: #e7f1ff;
+  color: #0d6efd;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.input {
+  background-color: #e9ecef;
+  border: none;
+  border-radius: 16px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.meta {
   display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.formContainer {
+  margin-right: 1rem;
+}
+
+.calendarContainer {
+  margin-left: 1rem;
 }
