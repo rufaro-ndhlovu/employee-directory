@@ -27,6 +27,7 @@ import {
 const employeesRef = collection(db, "employees");
 const usersRef = collection(db, "users");
 const eventsRef = collection(db, "events");
+const announcementsRef = collection(db, "announcements");
 
 let auth;
 const getAuthClient = () => {
