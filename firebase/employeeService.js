@@ -232,7 +232,7 @@ export const deleteEvent = async (id) => {
 /*-------------------- Get all posts ----------------------- */
 
 export const getPosts = async () => {
-  const q = query(announcementsRef);
+  const q = query(announcementsRef, orderBy("date", "desc"));
 
   const snapshot = await getDocs(q);
 

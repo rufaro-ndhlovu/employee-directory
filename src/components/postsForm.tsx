@@ -5,9 +5,8 @@ import styles from "./postsForm.module.css";
 import { FloatingLabel, Form } from "react-bootstrap";
 import ButtonComp from "@/components/components/button";
 import { addPost } from "../../firebase/employeeService";
-import SideMenu from "./components/sideMenu";
 
-const PostsForm = ({ fetchPosts }: { fetchPosts: () => void }) => {
+const PostsForm = ({ fetchPosts, user }: { fetchPosts: () => void; user: any }, ) => {
     // State for announcement title and description
     const [announcement, setAnnouncement] = useState("");
     const [description, setDescription] = useState("");
@@ -17,7 +16,7 @@ const PostsForm = ({ fetchPosts }: { fetchPosts: () => void }) => {
         postTitle: announcement,
         postDescription: description,
         date: new Date().toISOString(),
-        userFullName: "Jane Fonda" 
+        userFullName: user?.firstName + " " + user?.lastName || "Anonymous User",
     }
 
     // Handle form submission to post an announcement with Firestore integration
@@ -35,15 +34,10 @@ const PostsForm = ({ fetchPosts }: { fetchPosts: () => void }) => {
     }
 
   return (
-    <div>
-      <div className={styles.announcementsPage}>
-        {/* Side Menu for navigation */}
-        <SideMenu />
-
+      <div>
         {/* Announcement Form Section */}
-        <h1>Announcements</h1>
 
-        <div className={styles.announcementForm}>
+        <div>
             <form onSubmit={handlePostAnnouncement}>
             {/* Annuncement Title */}
             <FloatingLabel 
@@ -85,7 +79,6 @@ const PostsForm = ({ fetchPosts }: { fetchPosts: () => void }) => {
             </form> 
           </div>
         </div>
-    </div>
     )
 }
 

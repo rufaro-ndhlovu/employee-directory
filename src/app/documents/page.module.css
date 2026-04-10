@@ -1,14 +1,144 @@
 .announcementsPage {
+  display: flex;
   margin-left: 16rem;
-  padding: 20px;
+  min-height: 100vh;
+  padding: 2rem 2.5rem;
+  gap: 2rem;
+  background: transparent;
 }
 
-.announcementForm {
-  max-width: 40rem;
-  margin: 0 auto;
-  border: solid 1px #287bc9;
-  padding: 2rem;
+.announcementsContent {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+}
+
+.pageHeader {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(79, 70, 229, 0.08);
+}
+
+.pageHeader h1 {
+  font-size: clamp(1.9rem, 2vw, 2.4rem);
+  color: #132f4c;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #475569;
+  line-height: 1.65;
+  max-width: 42rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 10rem;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(111, 199, 194, 0.15), rgba(161, 133, 255, 0.15));
+  color: #1d2939;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.formSection {
+  width: 100%;
+}
+
+.postsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.posts {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.post {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(79, 70, 229, 0.12);
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 50px rgba(15, 23, 42, 0.1);
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.postAuthor {
+  margin: 0 0 0.35rem;
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.postTitle {
+  margin: 0;
+  color: #1d3557;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.postHeaderActions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.postDate {
+  color: #64748b;
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.postDescription {
+  color: #334155;
+  line-height: 1.8;
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+}
+
+.postActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.emptyState {
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(241, 245, 249, 0.86);
+  color: #475569;
+  border: 1px dashed rgba(100, 116, 139, 0.25);
+  text-align: center;
+  font-size: 1rem;
+}
+
+.postDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
