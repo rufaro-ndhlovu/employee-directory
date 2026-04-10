@@ -2,20 +2,11 @@
 
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import ButtonComp from "@/components/profile/button";
-import Image from "next/image";
-import Card from "react-bootstrap/Card";
-
-import { Sun } from "@deemlol/next-icons";
-import { Settings } from "@deemlol/next-icons";
 import { XCircle } from "@deemlol/next-icons";
-import { Moon, Menu } from "@deemlol/next-icons";
 import styles from "./navBar.module.css";
 import toast from "react-hot-toast";
 
-import { logout, searchQuery } from "../../firebase/employeeService";
+import { logout } from "../../firebase/employeeService";
 import { useRouter } from "next/navigation";
 
 function NavBar({ onSearch, searchValue, clear }) {

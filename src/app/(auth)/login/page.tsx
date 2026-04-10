@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
@@ -10,17 +9,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Image from "next/image";
 
 import styles from "./page.module.css";
 import { login } from "../../../../firebase/employeeService";
 import toast from "react-hot-toast";
 import ButtonComp from "@/components/components/button";
-import ForgotPassword from "@/components/components/forgotPassword";
 import ForgotPasswordModal from "@/components/components/forgotPassword";
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
   const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
 
   const router = useRouter();

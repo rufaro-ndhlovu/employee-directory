@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Styles from './dashboardStats.module.css';
+import Image from 'next/image';
 
 
 export default function DashboardStats() {
@@ -10,7 +11,7 @@ export default function DashboardStats() {
     return (
         <div className={Styles.dashContainer}>
             <div className={Styles.employees}>
-                <img src="/icons8-employees-48.png" className={Styles.logo}/>
+                <Image src="/icons8-employees-48.png" className={Styles.logo} width={48} height={48} />
                 <div>
                     <h3>7</h3>
                     <p>Employees</p>

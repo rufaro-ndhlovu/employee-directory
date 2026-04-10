@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/esm/Button";
 import Modal from "react-bootstrap/Modal";
 import FloatingLabel from "react-bootstrap/esm/FloatingLabel";
 import styles from "./editUserForm.module.css";

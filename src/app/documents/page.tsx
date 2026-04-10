@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PostsForm from "@/components/postsForm";
-import { getPosts, updatePost, deletePost } from "../../../firebase/employeeService";
+import { getPosts } from "../../../firebase/employeeService";
 import SideMenu from "@/components/components/sideMenu";
 import { getUserLoggedIn } from "../../../firebase/employeeService";
 import ButtonComp from "@/components/components/button";

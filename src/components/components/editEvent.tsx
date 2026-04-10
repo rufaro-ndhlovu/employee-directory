@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Modal } from "react-bootstrap";
 import ButtonComp from "./button";
-import { updateEvent, deleteEvent } from "../../../firebase/employeeService";
+import { updateEvent} from "../../../firebase/employeeService";
 import DeleteEvent from "./deleteEvent";
 import styles from "./editEvent.module.css";
 
