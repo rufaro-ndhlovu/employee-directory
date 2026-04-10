@@ -8,10 +8,13 @@ import PostsForm from "@/components/postsForm";
 import { getPosts, updatePost, deletePost } from "../../../firebase/employeeService";
 
 export default function Announcements() { 
-  const [posts, setPosts] = useState([]);
+  // State to hold the list of posts
+    const [posts, setPosts] = useState<any[]>([]);
 
+  // Function to fetch posts from the database and update the state
     const fetchPosts = async () => {
         try {
+            // Fetch posts data from the database
             const postsData = await getPosts();
             setPosts(postsData);
         } catch (error) {
@@ -19,6 +22,7 @@ export default function Announcements() {
         }
     }
 
+    // Fetch posts when the component mounts
     useEffect(() => {
         fetchPosts();
     }, []);
@@ -30,7 +34,7 @@ export default function Announcements() {
         <div className={styles.posts}>
             <div>
                 {posts.map((post) => (
-                    <div key={post.id}>
+                    <div key={post.id} className={styles.post}>
                         <h1>{post.userFullName}</h1>
                         <p>{post.postTitle}</p>
                         <p>{post.postDescription}</p>
