@@ -20,7 +20,7 @@ const PostsForm = ({ fetchPosts, user }: { fetchPosts: () => void; user: any }, 
     }
 
     // Handle form submission to post an announcement with Firestore integration
-    const handlePostAnnouncement = async (e) => {
+    const handlePostAnnouncement = async (e: any) => {
         e.preventDefault(); // Prevent default form submission behavior
 
         try {

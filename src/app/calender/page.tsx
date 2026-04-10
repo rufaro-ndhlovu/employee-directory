@@ -66,7 +66,7 @@ export default function Calender() {
   };
 
   // Enhanced event click handler to edit event title
-  const handleEventClick = (clickInfo) => {
+  const handleEventClick = (clickInfo: any) => {
     const eventId = clickInfo.event.id;
     const currentTitle = clickInfo.event.title;
     setEditingEventId(eventId);
