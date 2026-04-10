@@ -39,15 +39,15 @@ const PostsForm = ({ fetchPosts, user }: { fetchPosts: () => void; user: any }, 
 
         <div>
             <form onSubmit={handlePostAnnouncement}>
-            {/* Annuncement Title */}
-            <FloatingLabel 
-                controlId="floatingTextarea" 
+            {/* Announcement Title */}
+            <FloatingLabel
+                controlId="floatingAnnouncementTitle"
                 label="Announcement Title"
                 className="mb-3"
-                placeholder="Enter announcement title..." 
-                >
-                <Form.Control 
-                    as="textarea"
+                placeholder="Enter announcement title..."
+            >
+                <Form.Control
+                    type="text"
                     value={announcement}
                     onChange={(e) => setAnnouncement(e.target.value)}
                 />
