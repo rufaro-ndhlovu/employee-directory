@@ -1,15 +1,13 @@
 .announcementsPage {
   margin-left: 16rem;
   padding: 20px;
-  display: flex;
-  flex-direction: rown;
 }
 
 .announcementForm {
-  max-width: 30rem;
+  max-width: 40rem;
   margin: 0 auto;
   border: solid 1px #287bc9;
-  padding: 20px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;

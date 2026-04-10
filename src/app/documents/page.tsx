@@ -1,73 +1,46 @@
 "use client";
 
-import React, { useState } from "react";
-import SideMenu from "@/components/components/sideMenu";
+import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
-import { FloatingLabel, Form } from "react-bootstrap";
-import ButtonComp from "@/components/components/button";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Posts from "@/components/components/posts";
+import PostsForm from "@/components/postsForm";
+import { getPosts, updatePost, deletePost } from "../../../firebase/employeeService";
 
 export default function Announcements() { 
-  const [announcement, setAnnouncement] = useState("");
-  const [description, setDescription] = useState("");
+  const [posts, setPosts] = useState([]);
 
-  function handlePostAnnouncement() {
+    const fetchPosts = async () => {
+        try {
+            const postsData = await getPosts();
+            setPosts(postsData);
+        } catch (error) {
+            console.error("Error fetching posts:", error);
+        }
+    }
 
-  }
+    useEffect(() => {
+        fetchPosts();
+    }, []);
 
   return (
-    <div>
-      <SideMenu />
-      <div className={styles.announcementsPage}>
-        <h1>Announcements</h1>
-        <div className={styles.announcementForm}>
-        <form>
-          {/* Annuncement Title */}
-          <FloatingLabel 
-            controlId="floatingTextarea" 
-            label="Announcement Title"
-            className="mb-3"
-            placeholder="Write your announcement here..." 
-            >
-              <Form.Control 
-                as="textarea"
-                value={announcement}
-                onChange={(e) => setAnnouncement(e.target.value)}
-              />
-          </FloatingLabel>
-
-          {/* Annuncement Description */}
-          <FloatingLabel 
-            controlId="floatingTextarea2" 
-            label="Announcement Description"
-            className="mb-3"
-            placeholder="Enter announcement description..." 
-            >
-              <Form.Control 
-                as="textarea"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-          </FloatingLabel>
-
-          {/* Annuncement Button */}
-          <ButtonComp 
-            text="Post Announcement"
-            style={{
-              width: "auto",
-              color: "#fff",
-              background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
-            }}
-            onClick={handlePostAnnouncement}
-          />
-        </form>
-        </div> //Post div end
-
+    <div className={styles.announcementsPage}>
+      <PostsForm fetchPosts={fetchPosts} />
         {/* Display Announcements */}
         <div className={styles.posts}>
-
+            <div>
+                {posts.map((post) => (
+                    <div key={post.id}>
+                        <h1>{post.userFullName}</h1>
+                        <p>{post.postTitle}</p>
+                        <p>{post.postDescription}</p>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                        <button>Like/React</button>
+                    </div>
+                ))}
+            </div>
         </div>  
-      </div>
     </div>
   );
 }

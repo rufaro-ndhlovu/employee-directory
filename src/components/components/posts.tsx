@@ -1,16 +1,26 @@
-import React from "react";
+"use client";
 
-const Posts = () => {
+import React, { useState, useEffect} from "react";
+import styles from "./posts.module.css";
+import { getPosts, updatePost, deletePost } from "../../../firebase/employeeService";
 
+const Posts = ({ posts }: { posts: any[] }) => {
+    
     return (
-        <div>
-            <h1>user full name</h1>
-            <p>user post title</p>
-            <p>user post description</p>
-
-            <button>like button</button>
-            <button>comment button</button>
-        </div>
+        <>
+            <div>
+                {posts.map((post) => (
+                    <div key={post.id}>
+                        <h1>{post.userFullName}</h1>
+                        <p>{post.postTitle}</p>
+                        <p>{post.postDescription}</p>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                        <button>Like/React</button>
+                    </div>
+                ))}
+            </div>
+        </>
     )
 }
 
