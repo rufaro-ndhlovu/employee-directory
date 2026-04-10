@@ -108,7 +108,9 @@ export default function LoginPage() {
                 width: "21rem",
                 color: "#fff",
                 background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
+                
               }}
+              onClick={() => formik.handleSubmit()}
             />
           </div>
           <br />
