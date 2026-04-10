@@ -44,7 +44,6 @@ const PostsForm = ({ fetchPosts, user }: { fetchPosts: () => void; user: any }, 
                 controlId="floatingAnnouncementTitle"
                 label="Announcement Title"
                 className="mb-3"
-                placeholder="Enter announcement title..."
             >
                 <Form.Control
                     type="text"
@@ -58,7 +57,6 @@ const PostsForm = ({ fetchPosts, user }: { fetchPosts: () => void; user: any }, 
                 controlId="floatingTextarea2" 
                 label="Announcement Description"
                 className="mb-3"
-                placeholder="Enter announcement description..." 
                 >
                 <Form.Control 
                     as="textarea"
@@ -75,6 +73,7 @@ const PostsForm = ({ fetchPosts, user }: { fetchPosts: () => void; user: any }, 
                 color: "#fff",
                 background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
                 }}
+                onClick={handlePostAnnouncement}
             />
             </form> 
           </div>

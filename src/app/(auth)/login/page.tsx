@@ -103,7 +103,6 @@ export default function LoginPage() {
           {/*Sign in button */}
           <div className={styles.buttonContainer}>
             <ButtonComp
-              type="submit"
               text="login"
               style={{
                 width: "21rem",
