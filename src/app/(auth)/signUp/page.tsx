@@ -22,7 +22,7 @@ export default function SignUp() {
 
   const formik = useFormik({
     initialValues: {
-	  userPhotoUrl: "",	
+      userPhotoUrl: "",
       firstName: "",
       lastName: "",
       email: "",
@@ -30,7 +30,7 @@ export default function SignUp() {
       role: "",
     },
     validationSchema: Yup.object({
-	  userPhotoUrl: Yup.string(),
+      userPhotoUrl: Yup.string(),
       firstName: Yup.string().required("Required"),
       lastName: Yup.string().required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
@@ -41,15 +41,15 @@ export default function SignUp() {
     }),
     onSubmit: async (values) => {
       try {
-		//Create auth user
+        //Create auth user
         const userCredential = await signUp(values.email, values.password);
         const user = userCredential.user;
 
-		//Save user document
+        //Save user document
         const db = getFirestore();
         await setDoc(doc(db, "users", user.uid), {
           uid: user.uid,
-		  userPhotoUrl: values.userPhotoUrl,
+          userPhotoUrl: values.userPhotoUrl,
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
@@ -58,7 +58,6 @@ export default function SignUp() {
 
         toast.success("Account created successfully, please login");
         router.push("/login");
-
       } catch (error: unknown) {
         const firebaseError = error as { code?: string };
         let errorMessage = "Error creating account";
@@ -80,26 +79,27 @@ export default function SignUp() {
     <div className={styles.page}>
       <div className={styles.overlay}></div>
       <Card className={styles.form} style={{ width: "25rem" }}>
-        {/*Logo */}
-        <Image src="/logo2.png" alt="logo" width={320} height={120} />
+        <div className={styles.image}>
+          <img src="/logo3nobg.png" alt="logo" width={310} height={100} />
+        </div>
 
         {/*Greeting Header */}
         <h4 className={styles.header}>Great to meet you!</h4>
         <Form onSubmit={formik.handleSubmit}>
-          {/*User profile image */}
+          {/*User profile image 
           <FloatingLabel
             controlId="floatingInput"
             label="User Profile Picture"
             className="mb-3"
           >
             <Form.Control
-			  name="userPhotoUrl"
+              name="userPhotoUrl"
               type="text"
               placeholder="Paste profile image path or url"
               onChange={formik.handleChange}
-			  value={formik.values.userPhotoUrl}
+              value={formik.values.userPhotoUrl}
             />
-          </FloatingLabel>
+          </FloatingLabel>*/}
 
           {/*First Name */}
           <FloatingLabel
@@ -190,9 +190,9 @@ export default function SignUp() {
           ) : null}
 
           {/*Sign Up Button */}
-          <Button type="submit" className={styles.signUpButton}>
+          <button type="submit" className={styles.signUpButton}>
             Sign Up
-          </Button>
+          </button>
           <br />
           <br />
 

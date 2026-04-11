@@ -102,16 +102,9 @@ export default function LoginPage() {
 
           {/*Sign in button */}
           <div className={styles.buttonContainer}>
-            <ButtonComp
-              text="login"
-              style={{
-                width: "21rem",
-                color: "#fff",
-                background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
-                
-              }}
-              onClick={() => formik.handleSubmit()}
-            />
+            <button type="submit" className={styles.signInButton}>
+              Sign in
+            </button>
           </div>
           <br />
           <br />
