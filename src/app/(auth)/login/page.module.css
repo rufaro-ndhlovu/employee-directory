@@ -16,11 +16,12 @@
   min-height: 100vh;
 }
 
+/* Main content container */
 .form {
   background: #081f2d !important;
   border-radius: 20px;
   padding: 28px 30px 28px 36px;
-  color: #fff;
+  color: #fff !important;
   position: relative;
   box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
 }
@@ -52,6 +53,7 @@
   justify-content: center;
 }
 
+/* Image container */
 .image {
   display: flex;
   flex-direction: row;
