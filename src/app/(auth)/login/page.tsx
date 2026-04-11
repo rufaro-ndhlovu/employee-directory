@@ -38,14 +38,17 @@ export default function LoginPage() {
         toast.success("login successful");
         router.push("/employeeInfo");
       } catch (error) {
-        const firebaseError = error as { code?: string };
+        const firebaseError = error as { code?: string; message?: string };
         let errorMessage = "Error occurred during login";
 
         if (firebaseError.code === "auth/invalid-credential") {
           errorMessage = "Invalid email or password, please try again.";
         }
 
-        toast.error(errorMessage);
+        // Temporarily show the real error in the toast
+        toast.error(
+          firebaseError.code || firebaseError.message || "Unknown error",
+        );
 
         console.log(firebaseError);
         console.log(firebaseError.code);
