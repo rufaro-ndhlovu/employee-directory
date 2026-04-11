@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import employees from "@/Data/personnelData";
 import AddUserForm from "@/components/components/addUserForm";
 import EditUserForm from "@/components/components/editUserForm";
 import DeleteUser from "@/components/components/deleteUserForm";
@@ -16,12 +15,9 @@ import {
 } from "../../../firebase/employeeService";
 import DashboardStats from "@/components/components/dashboardStats";
 
-import Button from "react-bootstrap/Button";
 import Styles from "./page.module.css";
-import Table from "react-bootstrap/Table";
 import { Edit3 } from "@deemlol/next-icons";
 import { Trash2 } from "@deemlol/next-icons";
-import { Plus } from "@deemlol/next-icons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { isAdmin, useUserRole } from "@/hooks/useUserRole";
 import Loading from "@/components/components/loading";

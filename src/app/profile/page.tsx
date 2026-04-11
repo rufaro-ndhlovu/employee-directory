@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,7 +14,7 @@ import Calender from "../calender/page";
 
 export default function Profile() {
   const router = useRouter();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const loadUser = async () => {
@@ -34,118 +32,145 @@ export default function Profile() {
     loadUser();
   }, []);
 
+  const upcomingAppointments = [
+    {
+      id: 1,
+      title: "Client check-in",
+      date: "12 Apr",
+      time: "10:00 AM",
+      location: "Meeting Room 2",
+    },
+    {
+      id: 2,
+      title: "Project review",
+      date: "13 Apr",
+      time: "2:30 PM",
+      location: "Zoom",
+    },
+    {
+      id: 3,
+      title: "HR onboarding",
+      date: "15 Apr",
+      time: "11:00 AM",
+      location: "Office 4B",
+    },
+  ];
+
   return (
     <div className={styles.profilePage}>
       <SideMenu />
-      <div className={styles.profileCard}>
-        <div>
-          {user ? (
-            <>
-              <div className={styles.profileContent}>
-                {/* User Avatar Section */}
-                <div className={styles.avatarSection}>
-                  <UserAvatar
-                    alt="User profile image"
-                    user={user}
-                    avatarStyle={{ width: 145, height: 145 }}
-                  />
-                  <br />
-                  {/* User Information Section */}
-                  <h2 className={styles.name}>
-                    {user.firstName} {user.lastName}
-                  </h2>
+      <div className={styles.leftPanel}>
+        <div className={styles.profileCard}>
+          <div>
+            {user ? (
+              <>
+                <div className={styles.profileContent}>
+                  {/* User Avatar Section */}
+                  <div className={styles.avatarSection}>
+                    <UserAvatar
+                      alt="User profile image"
+                      user={user}
+                      avatarStyle={{ width: 145, height: 145 }}
+                    />
+                    <br />
+                    {/* User Information Section */}
+                    <h2 className={styles.name}>
+                      {user.firstName} {user.lastName}
+                    </h2>
 
-                  <span className={styles.roleBadge}>{user.role}</span>
-                </div>
-                <br />
-                <br />
-
-                <div className={styles.profileText}>
-                  {/* Form displaying user details */}
-                  <div className={styles.formContainer}>
-                    <form>
-                      {/* First Name Field */}
-                      <FloatingLabel
-                        controlId="floatingInput"
-                        label="First Name"
-                        className="mb-3"
-                      >
-                        <Form.Control
-                          type="text"
-                          value={user.firstName}
-                          className={styles.input}
-                          onChange={(e) => e.target.value}
-                        />
-                      </FloatingLabel>
-
-                      {/* Last Name Field */}
-                      <FloatingLabel
-                        controlId="floatingInput"
-                        label="Last Name"
-                        className="mb-3"
-                      >
-                        <Form.Control type="text" value={user.lastName} />
-                      </FloatingLabel>
-
-                      {/* Email Field */}
-                      <FloatingLabel
-                        controlId="floatingInput"
-                        label="Email"
-                        className="mb-3"
-                      >
-                        <Form.Control type="text" value={user.email} />
-                      </FloatingLabel>
-
-                      {/* Role Field */}
-                      <FloatingLabel
-                        controlId="floatingInput"
-                        label="Role"
-                        className="mb-3"
-                      >
-                        <Form.Control type="text" value={user.role} />
-                      </FloatingLabel>
-                    </form>
+                    <span className={styles.roleBadge}>{user.role}</span>
                   </div>
 
-                  <div className={styles.meta}>
-                    <span>Last login: 2 days ago</span>
-                    <span>Status: Active</span>
-                  </div>
-                  <br />
-                  {/* Action Buttons */}
-                  <div className={styles.buttonGroup}>
-                    {/* Close Button */}
-                    <ButtonComp
-                      text="Close"
-                      onClick={() => router.push("/profile")}
-                      style={{
-                        width: "auto",
-                        color: "#fff",
-                        background: "grey",
-                        marginRight: "0.5rem",
-                      }}
-                    />
-                    {/* Edit Profile Button */}
-                    <ButtonComp
-                      text="Update"
-                      style={{
-                        width: "auto",
-                        color: "#fff",
-                        background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
-                      }}
-                      onClick={() => router.push("/profile/editProfile")}
-                    />
+                  <div className={styles.profileText}>
+                    {/* Form displaying user details */}
+                    <div className={styles.formContainer}>
+                      <form>
+                        {/* First Name Field */}
+                        <FloatingLabel
+                          controlId="floatingInput"
+                          label="First Name"
+                          className="mb-3"
+                        >
+                          <Form.Control
+                            type="text"
+                            value={user.firstName}
+                            className={styles.input}
+                            readOnly
+                          />
+                        </FloatingLabel>
+
+                        {/* Last Name Field */}
+                        <FloatingLabel
+                          controlId="floatingInput"
+                          label="Last Name"
+                          className="mb-3"
+                        >
+                          <Form.Control type="text" value={user.lastName} readOnly />
+                        </FloatingLabel>
+
+                        {/* Email Field */}
+                        <FloatingLabel
+                          controlId="floatingInput"
+                          label="Email"
+                          className="mb-3"
+                        >
+                          <Form.Control type="text" value={user.email} readOnly />
+                        </FloatingLabel>
+
+                        {/* Role Field */}
+                        <FloatingLabel
+                          controlId="floatingInput"
+                          label="Role"
+                          className="mb-3"
+                        >
+                          <Form.Control type="text" value={user.role} readOnly />
+                        </FloatingLabel>
+                      </form>
+                    </div>
+
+                    <div className={styles.meta}>
+                      <span>Last login: 2 days ago</span>
+                      <span>Status: Active</span>
+                    </div>
+                    {/* Action Buttons */}
+                    <div className={styles.buttonGroup}>
+                      <ButtonComp
+                        text="Update profile"
+                        style={{
+                          width: "auto",
+                          color: "#fff",
+                          background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
+                        }}
+                        onClick={() => router.push("/profile/editProfile")}
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
-          ) : (
-            <Loading />
-          )}
+              </>
+            ) : (
+              <Loading />
+            )}
+          </div>
+        </div>
+        <div className={styles.calendarContainer}>
+          <Calender />
         </div>
       </div>
-      <div className={styles.calendarContainer}>
-        <Calender />
+      <div className={styles.rightPanel}>
+        <div className={styles.appointmentsCard}>
+          <div className={styles.appointmentsHeader}>Upcoming appointments</div>
+          <ul className={styles.appointmentsList}>
+            {upcomingAppointments.map((appointment) => (
+              <li className={styles.appointmentItem} key={appointment.id}>
+                <div className={styles.appointmentTitle}>{appointment.title}</div>
+                <div className={styles.appointmentMeta}>
+                  {appointment.date} · {appointment.time}
+                </div>
+                <div className={styles.appointmentLocation}>{appointment.location}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ import {
 const employeesRef = collection(db, "employees");
 const usersRef = collection(db, "users");
 const eventsRef = collection(db, "events");
+const announcementsRef = collection(db, "announcements");
 
 let auth;
 const getAuthClient = () => {
@@ -225,5 +226,36 @@ export const updateEvent = async (id, updatedData) => {
 /*-------------------- Delete Event ----------------------- */
 export const deleteEvent = async (id) => {
   const emptyDoc = doc(db, "events", id);
+  return await deleteDoc(emptyDoc);
+};
+
+/*-------------------- Get all posts ----------------------- */
+
+export const getPosts = async () => {
+  const q = query(announcementsRef, orderBy("date", "desc"));
+
+  const snapshot = await getDocs(q);
+
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+};
+
+/*-------------------- Add Posts ----------------------- */
+export const addPost = async (postData) => {
+  const docRef = await addDoc(announcementsRef, postData);
+  return docRef;
+};
+
+/*-------------------- Update post ----------------------- */
+export const updatePost = async (id, updatedData) => {
+  const editDoc = doc(db, "announcements", id);
+  return await updateDoc(editDoc, updatedData);
+};
+
+/*-------------------- Delete Post ----------------------- */
+export const deletePost = async (id) => {
+  const emptyDoc = doc(db, "announcements", id);
   return await deleteDoc(emptyDoc);
 };

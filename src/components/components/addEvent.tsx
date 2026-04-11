@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import styles from "./addEvent.module.css";
 import ButtonComp from "./button";
 import Modal from "react-bootstrap/Modal";

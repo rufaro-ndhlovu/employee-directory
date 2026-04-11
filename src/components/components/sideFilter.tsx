@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import locations from "@/Data/locationData";
 import departments from "@/Data/departmentsData";
-import Card from "react-bootstrap/Card";
 import toast from "react-hot-toast";
-import Button from "react-bootstrap/Button";
 import ButtonComp from "./button";
 
 import styles from "./sideFilter.module.css";

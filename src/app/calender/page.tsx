@@ -9,24 +9,29 @@ import Styles from "./page.module.css";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import bootstrap5Plugin from "@fullcalendar/bootstrap5";
 import {
-  getEvents,
-  addEvent,
-  updateEvent,
+  getEvents
 } from "../../../firebase/employeeService";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import AddEvent from "@/components/components/addEvent";
 import EditEvent from "@/components/components/editEvent";
 
+// Add this interface
+interface CalendarEvent {
+  id: string;
+  title: string;
+  start: string;
+}
+
 export default function Calender() {
   // State to hold calendar events
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [modalShow, setModalShow] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [title, setTitle] = useState("");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [newTitle, setNewTitle] = useState("");
-  const [editingEventId, setEditingEventId] = useState(null);
+  const [editingEventId, setEditingEventId] = useState<string | null>(null);
 
   // Fetch events from Firestore on component mount
   useEffect(() => {
@@ -34,7 +39,7 @@ export default function Calender() {
       try {
         const eventsData = await getEvents();
 
-        const formattedEvents = eventsData.map((event) => ({
+        const formattedEvents = eventsData.map((event: any) => ({
           id: event.id,
           title: event.title,
           start: event.date,
@@ -50,7 +55,7 @@ export default function Calender() {
   }, []);
 
   // Enhanced date click handler to add event with Firestore integration
-  const handleDateClick = (info) => {
+  const handleDateClick = (info: any) => {
     try {
       setModalShow(true);
       setSelectedDate(info.dateStr);
@@ -61,7 +66,7 @@ export default function Calender() {
   };
 
   // Enhanced event click handler to edit event title
-  const handleEventClick = (clickInfo) => {
+  const handleEventClick = (clickInfo: any) => {
     const eventId = clickInfo.event.id;
     const currentTitle = clickInfo.event.title;
     setEditingEventId(eventId);

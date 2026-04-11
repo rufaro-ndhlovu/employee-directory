@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import React from "react";
 import { deleteEvent } from "../../../firebase/employeeService";
-import styles from "./deleteEvent.module.css";
 import ButtonComp from "./button";
 
 export default function DeleteEvent({ eventId, onHide, setEvents }: any) {
