@@ -12,7 +12,7 @@ export default function DashboardStats() {
           alt="Employees icon"
           src="/icons8-employees-48.png"
           className={Styles.logo}
-          width={48}
+          width={60}
           height={48}
         />
         <div>
@@ -25,7 +25,7 @@ export default function DashboardStats() {
           alt="Departments icon"
           src="/icons8-department-48.png"
           className={Styles.logo}
-          width={48}
+          width={60}
           height={48}
         />
         <div>
@@ -38,7 +38,7 @@ export default function DashboardStats() {
           alt="Locations icon"
           src="/icons8-location-48.png"
           className={Styles.logo}
-          width={48}
+          width={60}
           height={48}
         />
         <div>

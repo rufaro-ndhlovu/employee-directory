@@ -21,7 +21,7 @@ export default function Home() {
           </div>
           <br />
           {/*--------- Slogan -------------- */}
-          <h4>Search, update, and manage employees in one place.</h4>
+          <h4>People management, made effortless.</h4>
           <br />
 
           {/*--------- Login and Sign up buttons -------------- */}

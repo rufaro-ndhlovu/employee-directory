@@ -105,7 +105,11 @@ export default function Profile() {
                           label="Last Name"
                           className="mb-3"
                         >
-                          <Form.Control type="text" value={user.lastName} readOnly />
+                          <Form.Control
+                            type="text"
+                            value={user.lastName}
+                            readOnly
+                          />
                         </FloatingLabel>
 
                         {/* Email Field */}
@@ -114,7 +118,11 @@ export default function Profile() {
                           label="Email"
                           className="mb-3"
                         >
-                          <Form.Control type="text" value={user.email} readOnly />
+                          <Form.Control
+                            type="text"
+                            value={user.email}
+                            readOnly
+                          />
                         </FloatingLabel>
 
                         {/* Role Field */}
@@ -123,15 +131,15 @@ export default function Profile() {
                           label="Role"
                           className="mb-3"
                         >
-                          <Form.Control type="text" value={user.role} readOnly />
+                          <Form.Control
+                            type="text"
+                            value={user.role}
+                            readOnly
+                          />
                         </FloatingLabel>
                       </form>
                     </div>
 
-                    <div className={styles.meta}>
-                      <span>Last login: 2 days ago</span>
-                      <span>Status: Active</span>
-                    </div>
                     {/* Action Buttons */}
                     <div className={styles.buttonGroup}>
                       <ButtonComp
@@ -139,7 +147,8 @@ export default function Profile() {
                         style={{
                           width: "auto",
                           color: "#fff",
-                          background: "linear-gradient(135deg, #6fc7c2, #a185ff)",
+                          background:
+                            "linear-gradient(135deg, #6fc7c2, #a185ff)",
                         }}
                         onClick={() => router.push("/profile/editProfile")}
                       />
@@ -162,11 +171,15 @@ export default function Profile() {
           <ul className={styles.appointmentsList}>
             {upcomingAppointments.map((appointment) => (
               <li className={styles.appointmentItem} key={appointment.id}>
-                <div className={styles.appointmentTitle}>{appointment.title}</div>
+                <div className={styles.appointmentTitle}>
+                  {appointment.title}
+                </div>
                 <div className={styles.appointmentMeta}>
                   {appointment.date} · {appointment.time}
                 </div>
-                <div className={styles.appointmentLocation}>{appointment.location}</div>
+                <div className={styles.appointmentLocation}>
+                  {appointment.location}
+                </div>
               </li>
             ))}
           </ul>

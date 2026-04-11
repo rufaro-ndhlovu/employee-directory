@@ -25,7 +25,7 @@
   position: relative;
   box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
   min-height: 45vh;
-  min-width: 45vw;
+  min-width: 40vw;
   display: flex;
   flex-direction: column;
   align-items: center;
